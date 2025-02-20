@@ -26,9 +26,7 @@ public class OwnerFactory {
     public Owner next() {
         String name = names[random.nextInt(6)];
         String surname = names[random.nextInt(6)];
-
         return new Owner(name, surname);
     }
-
 
 }

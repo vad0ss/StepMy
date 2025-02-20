@@ -1,5 +1,6 @@
 package by.Prileipishev.out.production.L_27_01_2025.Military_HT;
 
+
 import java.util.Random;
 
 public class RecruitGenerator {

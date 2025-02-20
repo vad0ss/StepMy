@@ -40,8 +40,8 @@ public class Task00 {
         for (int i = 0; i < buildings.length; i++) {
             int doors = random.nextInt(20);
             int windows = random.nextInt(30);
-            int height = random.nextInt(1, 51);
-            int yearsBuild = random.nextInt(1900, 2024);
+            int height = random.nextInt(51);
+            int yearsBuild = random.nextInt(2024);
             String material = materials[random.nextInt(materials.length)];
             String street = streets[random.nextInt(streets.length)];
 

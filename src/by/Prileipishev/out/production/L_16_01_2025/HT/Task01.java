@@ -6,7 +6,7 @@ package by.Prileipishev.out.production.L_16_01_2025.HT;
  *
  * */
 
-import L_16_01_2025.utils.ArrayUtil;
+import by.Prileipishev.out.production.L_16_01_2025.utils.ArrayUtil;
 
 import java.util.Arrays;
 import java.util.Set;
