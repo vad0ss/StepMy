@@ -39,7 +39,7 @@ public class Owner {
         this.id = ++totalOwners;
         this.name = names[random.nextInt(names.length)];
         this.surName = surNames[random.nextInt(surNames.length)];
-        this.sex = "male";
+        this.sex = random.nextBoolean() ? "male" : "female";
     }
 
     public String getName() {
@@ -94,7 +94,7 @@ public class Owner {
                 ", name='" + name + '\'' +
                 ", surName='" + surName + '\'' +
                 ", pets=" + pets +
+                ", sex='" + sex + '\'' +
                 '}';
     }
-
 }
