@@ -14,6 +14,8 @@ public class Owner {
     private static String[] surNames = new String[5];
     private List<Pet> pets = new ArrayList<Pet>();
     private static int totalOwners = 0;
+    private String sex;
+
 
     private static Random random = new Random();
 
@@ -37,6 +39,7 @@ public class Owner {
         this.id = ++totalOwners;
         this.name = names[random.nextInt(names.length)];
         this.surName = surNames[random.nextInt(surNames.length)];
+        this.sex = "male";
     }
 
     public String getName() {
@@ -78,6 +81,10 @@ public class Owner {
     public void addPet(Pet pet) {
         this.pets.add(pet);
         pet.setOwner(this);
+    }
+
+    public String getSex() {
+        return sex;
     }
 
     @Override
