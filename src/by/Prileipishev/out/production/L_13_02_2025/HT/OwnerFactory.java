@@ -4,9 +4,9 @@ import java.util.Random;
 
 public class OwnerFactory {
 
-    private static Random random = new Random();
     private static String[] names = new String[5];
     private static String[] surNames = new String[5];
+    private static Random random = new Random();
 
     static {
         names[0] = "Анна";
@@ -23,9 +23,9 @@ public class OwnerFactory {
     }
 
 
-    public Owner next() {
-        String name = names[random.nextInt(6)];
-        String surname = names[random.nextInt(6)];
+    public static Owner next() {
+        String name = names[random.nextInt(5)];
+        String surname = names[random.nextInt(5)];
         return new Owner(name, surname);
     }
 

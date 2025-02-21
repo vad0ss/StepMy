@@ -5,19 +5,15 @@ import java.util.ArrayList;
 public class Main {
 
     public static void main(String[] args) {
-
-        OwnerFactory ownerFactory = new OwnerFactory();
-        PetFactory petFactory = new PetFactory();
-
         ArrayList<Owner> owners = new ArrayList<Owner>();
 
         for (int i = 0; i < 100; i++) {
-            owners.add(ownerFactory.next());
+            owners.add(OwnerFactory.next());
         }
 
         for (Owner owner : owners) {
             for (int i = 0; i < 200; i++) {
-                owner.addPet(petFactory.next());
+                owner.addPet(PetFactory.next());
             }
             System.out.println(owner);
         }

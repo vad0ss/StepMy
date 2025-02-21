@@ -9,7 +9,7 @@ public class PetFactory {
     private static List<String> catNames = new ArrayList<String>();
     private static List<String> dogNames = new ArrayList<String>();
 
-    private Random random = new Random();
+    private static Random random = new Random();
 
     static {
         catNames.add("Мурка");
@@ -35,7 +35,7 @@ public class PetFactory {
         dogNames.add("Джет");
     }
 
-    public Pet next() {
+    public static Pet next() {
         return random.nextBoolean() ? new Cat(catNames.get(random.nextInt(10)), "кошка", random.nextInt(10))
                 : new Dog(dogNames.get(random.nextInt(10)), "собака", random.nextInt(10));
     }
