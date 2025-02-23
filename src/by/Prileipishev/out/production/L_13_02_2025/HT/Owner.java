@@ -65,7 +65,7 @@ public class Owner {
 
     @Override
     public String toString() {
-        return this.name + " " + this.surName + " " + pets;
+        return this.name + " " + this.surName + " количество питомцев: " + this.pets.size();
     }
 
 }

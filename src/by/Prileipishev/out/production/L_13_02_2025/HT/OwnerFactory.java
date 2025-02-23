@@ -25,7 +25,7 @@ public class OwnerFactory {
 
     public static Owner next() {
         String name = names[random.nextInt(5)];
-        String surname = names[random.nextInt(5)];
+        String surname = surNames[random.nextInt(5)];
         return new Owner(name, surname);
     }
 
