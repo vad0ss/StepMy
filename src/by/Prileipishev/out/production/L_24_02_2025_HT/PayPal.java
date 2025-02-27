@@ -4,19 +4,12 @@ public class PayPal implements PaymentMethod {
 
     private String email;
 
-    private double amount;
-
     public PayPal(String email) {
         this.email = email;
     }
 
     @Override
     public void pay(double amount) {
-        this.amount = amount;
-    }
-
-    @Override
-    public String toString() {
-        return "Оплата " + amount + " через PayPal аккаунт " + this.email;
+        System.out.println("Оплата " + amount + " через PayPal аккаунт " + this.email);
     }
 }
