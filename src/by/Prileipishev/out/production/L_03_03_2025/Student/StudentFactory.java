@@ -1,12 +1,13 @@
 package by.Prileipishev.out.production.L_03_03_2025.Student;
 
+
 import java.util.List;
 import java.util.Random;
 
 public class StudentFactory {
 
-    private static List<String> names = List.of("Андрей", "Дмитрий", "Василий","Анна","Павел","Александр","Григорий","Вячеслав", "Светлана", "Татьяна");
-    private static Random random = new Random();
+    private static final List<String> names = List.of("Андрей", "Дмитрий", "Василий","Анна","Павел","Александр","Григорий","Вячеслав", "Светлана", "Татьяна");
+    private static final Random random = new Random();
 
     private StudentFactory() {};
 

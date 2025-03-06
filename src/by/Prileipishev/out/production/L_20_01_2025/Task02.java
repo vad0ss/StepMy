@@ -1,6 +1,6 @@
 package by.Prileipishev.out.production.L_20_01_2025;
 
-import L_16_01_2025.utils.ArrayUtil;
+import by.Prileipishev.out.production.L_16_01_2025.utils.ArrayUtil;
 
 import java.awt.image.AreaAveragingScaleFilter;
 import java.util.Arrays;

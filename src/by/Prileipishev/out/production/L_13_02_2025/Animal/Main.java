@@ -16,11 +16,11 @@ public class Main {
             System.out.println(animal.sleeping());
             System.out.println(animal.eat());
 
-            if(animal instanceof Pet pet) {
-                System.out.println(pet.play());
-            } else if (animal instanceof WildAnimal wild) {
-                System.out.println(wild.hunt());
-            }
+//            if(animal instanceof Pet pet) {
+//                System.out.println(pet.play());
+//            } else if (animal instanceof WildAnimal wild) {
+//                System.out.println(wild.hunt());
+//            }
 
             System.out.println();
         }

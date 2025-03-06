@@ -2,7 +2,7 @@ package by.Prileipishev.out.production.L_03_03_2025.Student;
 
 import java.util.Objects;
 
-public class Student {
+public class Student implements Comparable<Student> {
 
     private String name;
     private int age;
@@ -30,12 +30,12 @@ public class Student {
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
         Student student = (Student) o;
-        return age == student.age && Double.compare(grade, student.grade) == 0 && Objects.equals(name, student.name);
+        return age == student.age && Objects.equals(name, student.name);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, age, grade);
+        return Objects.hash(name, age);
     }
 
     @Override
@@ -45,5 +45,15 @@ public class Student {
                 ", age=" + age +
                 ", grade=" + grade +
                 '}';
+    }
+
+    @Override
+    public int compareTo(Student o) {
+        int nameCompare = this.name.compareTo(o.name);
+        if (nameCompare != 0) {
+            return nameCompare;
+        }
+
+        return Integer.compare(this.age, o.age);
     }
 }
