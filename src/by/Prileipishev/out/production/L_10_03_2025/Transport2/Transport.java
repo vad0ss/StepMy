@@ -1,14 +1,17 @@
-package by.Prileipishev.out.production.L_06_03_2025.Transport;
+package by.Prileipishev.out.production.L_10_03_2025.Transport2;
 
 import java.util.Objects;
 
 public class Transport {
 
     private String model;
+    private String licensePlate;
     private int speed;
 
-    public Transport(String model, int speed) {
+
+    public Transport(String model, String licensePlate, int speed) {
         this.model = model;
+        this.licensePlate = licensePlate;
         this.speed = speed;
     }
 
@@ -22,15 +25,18 @@ public class Transport {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Transport transport = (Transport) o;
-        return model.equals(transport.model);
+        return Objects.equals(licensePlate, transport.licensePlate);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(model, getClass());
+        return Objects.hashCode(licensePlate);
+    }
+
+    public String getLicensePlate() {
+        return licensePlate;
     }
 
     @Override

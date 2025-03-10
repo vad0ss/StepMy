@@ -1,4 +1,4 @@
-package by.Prileipishev.out.production.L_06_03_2025.Transport;
+package by.Prileipishev.out.production.L_10_03_2025.Transport2;
 
 public class Main {
 
