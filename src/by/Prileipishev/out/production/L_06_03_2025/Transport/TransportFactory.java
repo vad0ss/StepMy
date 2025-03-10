@@ -22,8 +22,8 @@ public class TransportFactory {
 
         switch (type) {
             case "Car" : return new Car(models.get(random.nextInt(4)), random.nextInt(200), fuelTypes.get(random.nextInt(2)));
-            case "Bike" : return new Bike(models.get(random.nextInt(4)), random.nextInt(200), random.nextBoolean());
-            case "Truck" : return new Truck(models.get(random.nextInt(4)), random.nextInt(200), random.nextDouble(100));
+            case "Bike" : return new Bike(models.get(random.nextInt(4)), random.nextInt(60), random.nextBoolean());
+            case "Truck" : return new Truck(models.get(random.nextInt(4)), random.nextInt(140), random.nextDouble(100));
         }
 
         return null;

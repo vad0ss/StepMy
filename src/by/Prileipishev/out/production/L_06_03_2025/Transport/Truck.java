@@ -9,6 +9,4 @@ public class Truck extends Transport {
         this.loadCapacity = loadCapacity;
     }
 
-
-
 }

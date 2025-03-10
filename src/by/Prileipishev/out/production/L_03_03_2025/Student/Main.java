@@ -14,7 +14,7 @@ public class Main  {
             students.add(StudentFactory.next());
         }
 
-        sortByComparator(students, new StudentNameComparator());
+       // sortByComparator(students, new StudentNameComparator());
 
     }
 

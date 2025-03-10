@@ -7,7 +7,6 @@ public class Transport {
     private String model;
     private int speed;
 
-
     public Transport(String model, int speed) {
         this.model = model;
         this.speed = speed;
@@ -17,23 +16,27 @@ public class Transport {
         return model;
     }
 
+    public int getSpeed() {
+        return speed;
+    }
+
     @Override
     public boolean equals(Object o) {
+        if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Transport transport = (Transport) o;
-        return speed == transport.speed && Objects.equals(model, transport.model);
+        return model.equals(transport.model);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(model, speed);
+        return Objects.hash(model);
     }
 
     @Override
     public String toString() {
-        return "Transport{" +
+        return "Transport: " +
                 "model='" + model + '\'' +
-                ", speed=" + speed +
-                '}';
+                ", speed=" + speed + " " + getClass();
     }
 }
