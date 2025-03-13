@@ -43,6 +43,6 @@ public class Transport {
     public String toString() {
         return "Транспорт: " +
                 "модель ='" + model + '\'' +
-                ", максимальная скорость =" + speed + ", номер = " + licensePlate;
+                ", максимальная скорость =" + speed + ", номер = " + licensePlate + " " + getClass().getSimpleName();
     }
 }

@@ -9,7 +9,7 @@ public class TransportFactory {
     private static final List<String> models = List.of("Reno", "Bmw", "Audi", "Mercedes", "Suzuki", "Toyota", "Ford");
     private static final List<String> fuelTypes = List.of("Дизель", "Бензин");
 
-    private static final List<Character> numberAbc = List.of('А', 'В', 'Е', 'І', 'К', 'М', 'Н', 'О', 'Р', 'С', 'Т', 'Х');
+    private static final List<String> numberAbc = List.of("А", "В", "Е", "І", "К", "М", "Н", "О", "Р", "С", "Т", "Х");
 
     private static final Random random = new Random();
 
@@ -23,7 +23,7 @@ public class TransportFactory {
         switch (type) {
             case "Car" : return new Car(models.get(random.nextInt(7)), byNumberGenerator(), random.nextInt(200), fuelTypes.get(random.nextInt(2)));
             case "Bike" : return new Bike(models.get(random.nextInt(7)), byNumberGenerator(), random.nextInt(60), random.nextBoolean());
-            case "Truck" : return new Truck(models.get(random.nextInt(7)), byNumberGenerator(), random.nextInt(140), random.nextDouble(100));
+            case "Truck" : return new Truck(models.get(random.nextInt(7)), byTrackNumberGenerator(), random.nextInt(140), random.nextDouble(100));
         }
 
         return null;
@@ -31,12 +31,31 @@ public class TransportFactory {
 
 
     private static String byNumberGenerator() {
-         char c1 = numberAbc.get(random.nextInt(12));
-         char c2 = numberAbc.get(random.nextInt(12));
+         String c1 = numberAbc.get(random.nextInt(12));
+         String c2 = numberAbc.get(random.nextInt(12));
 
-         Integer intNumber = random.nextInt(1000, 9999);
+         String intNumber = "";
 
-         return intNumber.toString() + c1 + c2 + "-" + random.nextInt(1,10);
+        for (int i = 0; i < 4; i++) {
+            Integer num = random.nextInt(0,9);
+            intNumber += num.toString();
+        }
+
+         return intNumber + c1 + c2 + "-" + random.nextInt(1,10);
+    }
+
+    private static String byTrackNumberGenerator() {
+        String c1 = numberAbc.get(random.nextInt(12));
+        String c2 = numberAbc.get(random.nextInt(12));
+
+        String intNumber = "";
+
+        for (int i = 0; i < 4; i++) {
+            Integer num = random.nextInt(0,9);
+            intNumber += num.toString();
+        }
+
+        return c1 + c2 + intNumber + "-" + random.nextInt(1,10);
     }
 
 }
