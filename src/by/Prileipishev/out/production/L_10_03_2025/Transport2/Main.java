@@ -1,6 +1,10 @@
 package by.Prileipishev.out.production.L_10_03_2025.Transport2;
 
+import java.util.Scanner;
+
 public class Main {
+
+    private static Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
         TransportManager transportManager = new TransportManager();
@@ -10,39 +14,53 @@ public class Main {
             transportManager.addTransport(transport);
         }
 
-        System.out.println("Весь транспорт:");
-        transportManager.printAllTransport();
+        while (true) {
+            int num = menu();
 
-        System.out.println("Весь уникальный транспорт:");
-        transportManager.printUniqueTransport();
+            switch (num) {
+                case 1: {
+                    System.out.println("Введите номер транспорта для удаления: ");
+                    String number = scanner.next();
+                    transportManager.removeTransport(number);
+                    break;
+                }
+                case 2: {
+                    System.out.println("Введите номер транспорта: ");
+                    String number = scanner.next();
+                    System.out.println(transportManager.findTransportByPlate(number));
+                    break;
+                }
+                case 3: {
+                    System.out.println("Введите тип транспорта: ");
+                    String number = scanner.next();
+                    System.out.println(transportManager.getTransportByType(number));
+                    break;
+                }
+                case 4: {
+                    System.out.println("Введите тип транспорта (поиск самого быстрого по типу): ");
+                    String number = scanner.next();
+                    System.out.println(transportManager.getFastestTransportByType(number));
+                    break;
+                }
+                case 5: {
+                    transportManager.printAllTransport();
+                    break;
+                }
+                case 6: {
+                    return;
+                }
+            }
+        }
+    }
 
-        System.out.println("Весь транспорт после сортировки по скорости:");
-        transportManager.sortTransportBySpeed();
-        transportManager.printAllTransport();
+    private static int menu() {
+        System.out.println("Удалить транспорт: 1");
+        System.out.println("Получить транспорт по номеру: 2");
+        System.out.println("Получить список транспорта по типу: " + TransportFactory.getTransportTypes() + " 3");
+        System.out.println("Получить самый быстрый транспорт по типу: " + TransportFactory.getTransportTypes() + " 4");
+        System.out.println("Вывод списка транспорта: 5");
+        System.out.println("Выход: 6");
 
-        System.out.println("Весь уникальный транспорт после сортировки по скорости:");
-        transportManager.printUniqueTransport();
-
-        System.out.println("Весь транспорт после сортировки по модели:");
-        transportManager.sortTransportByModel();
-        transportManager.printAllTransport();
-
-        System.out.println("Весь уникальный транспорт после сортировки по модели:");
-        transportManager.printUniqueTransport();
-
-        System.out.println("Весь транспорт после удаления:");
-        transportManager.removeTransport("Reno");
-        transportManager.printAllTransport();
-
-        System.out.println("Весь уникальный транспорт после удаления:");
-        transportManager.printUniqueTransport();
-
-        System.out.println("Весь транспорт после сортировки по скорости:");
-        transportManager.sortTransportBySpeed();
-        transportManager.printAllTransport();
-
-        System.out.println("Весь уникальный транспорт после сортировки по скорости:");
-        transportManager.printUniqueTransport();
-
+        return scanner.nextInt();
     }
 }

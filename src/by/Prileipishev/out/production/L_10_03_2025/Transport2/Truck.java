@@ -4,9 +4,8 @@ public class Truck extends Transport {
 
     private double loadCapacity;
 
-    public Truck(String model, int speed, double loadCapacity) {
-        super(model, speed);
+    public Truck(String model, String licensePlate, int speed, double loadCapacity) {
+        super(model, licensePlate, speed);
         this.loadCapacity = loadCapacity;
     }
-
 }

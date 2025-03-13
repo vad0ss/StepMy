@@ -4,8 +4,8 @@ public class Car extends Transport {
 
     private String fuelType;
 
-    public Car(String model, int speed, String fuelType) {
-        super(model, speed);
+    public Car(String model, String licensePlate, int speed, String fuelType) {
+        super(model, licensePlate, speed);
         this.fuelType = fuelType;
     }
 }

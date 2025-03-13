@@ -17,7 +17,8 @@ public class TransportManager {
     }
 
     public void removeTransport(String licensePlate) {
-        Transport removeTransport = transportByPlate.remove(licensePlate);
+        Transport removeTransport = transportByPlate.get(licensePlate);
+        transportByPlate.remove(licensePlate);
 
         List<Transport> list = transportByType.get(removeTransport.getClass().getSimpleName());
         list.remove(removeTransport);
@@ -28,7 +29,21 @@ public class TransportManager {
     }
 
     public List<Transport> getTransportByType(String type) {
+        return transportByType.get(type);
+    }
 
+    public Transport getFastestTransportByType(String type) {
+        List<Transport> transports = getTransportByType(type);
+        transports.sort(new SortBySpeedComparator());
+        return transports.get(transports.size() - 1);
+    }
+
+    public void printAllTransport() {
+        transportByPlate.forEach((k, v) -> System.out.println(v));
+    }
+
+    public void printAllTransportByType() {
+        transportByType.forEach((k, v) -> System.out.println(k + " = " + v));
     }
 
 }
