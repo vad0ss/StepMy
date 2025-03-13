@@ -31,7 +31,7 @@ public class Main {
                     break;
                 }
                 case 3: {
-                    System.out.println("Введите тип транспорта: ");
+                    System.out.println("Введите тип транспорта " + TransportFactory.transportTypes);
                     String number = scanner.next();
                     System.out.println(transportManager.getTransportByType(number));
                     break;
@@ -54,12 +54,15 @@ public class Main {
     }
 
     private static int menu() {
+        System.out.println();
+        System.out.println("===============================================");
         System.out.println("Удалить транспорт: 1");
         System.out.println("Получить транспорт по номеру: 2");
-        System.out.println("Получить список транспорта по типу: " + TransportFactory.getTransportTypes() + " 3");
-        System.out.println("Получить самый быстрый транспорт по типу: " + TransportFactory.getTransportTypes() + " 4");
+        System.out.println("Получить список транспорта по типу " + TransportFactory.transportTypes + " : 3");
+        System.out.println("Получить самый быстрый транспорт по типу " + TransportFactory.transportTypes + " : 4");
         System.out.println("Вывод списка транспорта: 5");
         System.out.println("Выход: 6");
+        System.out.println("===============================================");
 
         return scanner.nextInt();
     }

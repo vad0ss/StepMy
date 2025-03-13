@@ -5,15 +5,11 @@ import java.util.Random;
 
 public class TransportFactory {
 
-    private static List<String> transportTypes = List.of("Car", "Bike", "Truck");
+    protected static final List<String> transportTypes = List.of("Car", "Bike", "Truck");
     private static final List<String> models = List.of("Reno", "Bmw", "Audi", "Mercedes", "Suzuki", "Toyota", "Ford");
     private static final List<String> fuelTypes = List.of("Дизель", "Бензин");
 
     private static final List<Character> numberAbc = List.of('А', 'В', 'Е', 'І', 'К', 'М', 'Н', 'О', 'Р', 'С', 'Т', 'Х');
-
-    public static List<String> getTransportTypes() {
-        return transportTypes;
-    }
 
     private static final Random random = new Random();
 

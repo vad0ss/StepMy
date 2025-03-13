@@ -41,8 +41,8 @@ public class Transport {
 
     @Override
     public String toString() {
-        return "Transport: " +
-                "model='" + model + '\'' +
-                ", speed=" + speed + " number " + licensePlate;
+        return "Транспорт: " +
+                "модель ='" + model + '\'' +
+                ", максимальная скорость =" + speed + ", номер = " + licensePlate;
     }
 }
