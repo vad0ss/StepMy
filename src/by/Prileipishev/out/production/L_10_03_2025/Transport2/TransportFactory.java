@@ -24,15 +24,16 @@ public class TransportFactory {
             case "Car" : return new Car(models.get(random.nextInt(7)), byNumberGenerator(), random.nextInt(200), fuelTypes.get(random.nextInt(2)));
             case "Bike" : return new Bike(models.get(random.nextInt(7)), byNumberGenerator(), random.nextInt(60), random.nextBoolean());
             case "Truck" : return new Truck(models.get(random.nextInt(7)), byTrackNumberGenerator(), random.nextInt(140), random.nextDouble(100));
+            default:
+                return null;
         }
 
-        return null;
     }
 
 
     private static String byNumberGenerator() {
-         String c1 = numberAbc.get(random.nextInt(12));
-         String c2 = numberAbc.get(random.nextInt(12));
+         String c1 = numberAbc.get(random.nextInt(numberAbc.size()));
+         String c2 = numberAbc.get(random.nextInt(numberAbc.size()));
 
          String intNumber = "";
 
@@ -45,8 +46,8 @@ public class TransportFactory {
     }
 
     private static String byTrackNumberGenerator() {
-        String c1 = numberAbc.get(random.nextInt(12));
-        String c2 = numberAbc.get(random.nextInt(12));
+        String c1 = numberAbc.get(random.nextInt(numberAbc.size()));
+        String c2 = numberAbc.get(random.nextInt(numberAbc.size()));
 
         String intNumber = "";
 

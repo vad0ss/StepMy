@@ -15,7 +15,8 @@ public class Main {
         }
 
         while (true) {
-            int num = menu();
+            printMenu();
+            int num = scanner.nextInt();
 
             switch (num) {
                 case 1: {
@@ -53,7 +54,7 @@ public class Main {
         }
     }
 
-    private static int menu() {
+    private static void printMenu() {
         System.out.println();
         System.out.println("===============================================");
         System.out.println("Удалить транспорт: 1");
@@ -63,7 +64,5 @@ public class Main {
         System.out.println("Вывод списка транспорта: 5");
         System.out.println("Выход: 6");
         System.out.println("===============================================");
-
-        return scanner.nextInt();
     }
 }

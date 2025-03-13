@@ -12,16 +12,29 @@ public class TransportManager {
         transportByPlate.putIfAbsent(transport.getLicensePlate(), transport);
 
         transportByType.putIfAbsent(transport.getClass().getSimpleName(), new ArrayList<>());
-        List<Transport> transports = transportByType.get(transport.getClass().getSimpleName());
-        transports.add(transport);
+        transportByType.get(transport.getClass().getSimpleName()).add(transport);
     }
 
     public void removeTransport(String licensePlate) {
-        Transport removeTransport = transportByPlate.get(licensePlate);
-        transportByPlate.remove(licensePlate);
+        if (transportByPlate.remove(licensePlate) != null) {
+            System.out.println("Транспорт с номером " + licensePlate + " удалён");
+        } else {
+            System.out.println("Транспорт с таким номером не найден!");
+        }
+    }
 
-        List<Transport> list = transportByType.get(removeTransport.getClass().getSimpleName());
-        list.remove(removeTransport);
+    public void removeTransportByType(String licensePlate) {
+        for (Map.Entry<String, List<Transport>> entry : transportByType.entrySet()) {
+            List<Transport> value = entry.getValue();
+            Iterator<Transport> iterator = value.iterator();
+
+            while (iterator.hasNext()) {
+                Transport next = iterator.next();
+                if (licensePlate.equals(next.getLicensePlate())) {
+                    iterator.remove();
+                }
+            }
+        }
     }
 
     public Transport findTransportByPlate(String licensePlate) {
@@ -35,7 +48,7 @@ public class TransportManager {
     public Transport getFastestTransportByType(String type) {
         List<Transport> transports = getTransportByType(type);
         transports.sort(new SortBySpeedComparator());
-        return transports.get(transports.size() - 1);
+        return transports.getLast();
     }
 
     public void printAllTransport() {
