@@ -1,14 +1,15 @@
 package by.Prileipishev.out.production.L_13_03_2025.TransportManagementSystem.Transports;
 
 import by.Prileipishev.out.production.L_13_03_2025.TransportManagementSystem.Comparators.SortBySpeedComparator;
+import by.Prileipishev.out.production.L_13_03_2025.TransportManagementSystem.Transports.Interfaces.TransportInterface;
 import by.Prileipishev.out.production.L_13_03_2025.TransportManagementSystem.User.User;
 
 import java.util.*;
 
-public class TransportUserManager {
+public class TransportUserManager implements TransportInterface {
 
     private Map<User, List<Transport>> transportByOwner = new HashMap<>();
-
+    @Override
     public void addTransport(Transport transport) {
         transportByOwner.putIfAbsent(transport.getUser(), new ArrayList<>());
         transportByOwner.get(transport.getUser()).add(transport);
@@ -30,7 +31,7 @@ public class TransportUserManager {
     public Transport getFastestTransport(User owner) {
         List<Transport> transports = getTransportByOwner(owner);
         transports.sort(new SortBySpeedComparator());
-        return transports.getLast();
+        return transports.get(transports.size() - 1);
     }
 
     public User findOwnerWithMostCars() {

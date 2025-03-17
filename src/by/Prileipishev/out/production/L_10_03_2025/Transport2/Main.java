@@ -40,7 +40,7 @@ public class Main {
                 case 4: {
                     System.out.println("Введите тип транспорта (поиск самого быстрого по типу): ");
                     String number = scanner.next();
-                    System.out.println(transportManager.getFastestTransportByType(number));
+                    //System.out.println(transportManager.getFastestTransportByType(number));
                     break;
                 }
                 case 5: {

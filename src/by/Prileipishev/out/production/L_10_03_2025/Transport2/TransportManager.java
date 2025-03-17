@@ -48,7 +48,7 @@ public class TransportManager {
     public Transport getFastestTransportByType(String type) {
         List<Transport> transports = getTransportByType(type);
         transports.sort(new SortBySpeedComparator());
-        return transports.getLast();
+        return transports.get(0);
     }
 
     public void printAllTransport() {

@@ -32,6 +32,10 @@ public class Transport {
         return speed;
     }
 
+    public int getYear() {
+        return year;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
@@ -50,8 +54,8 @@ public class Transport {
 
     @Override
     public String toString() {
-        return "Транспорт: " +
-                "модель ='" + model + '\'' +
-                ", максимальная скорость =" + speed + ", номер = " + licensePlate + " " + getClass().getSimpleName();
+        return "Транспорт: " + "модель ='" + model + '\'' + ", максимальная скорость = " + speed + ", номер = " + licensePlate + " год выпуска: " + year + " владелец " + user.getName() + " " + user.getSurname() + " " + getClass().getSimpleName();
     }
+
+
 }

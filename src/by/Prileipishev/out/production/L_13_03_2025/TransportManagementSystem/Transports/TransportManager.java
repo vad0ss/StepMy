@@ -47,11 +47,11 @@ public class TransportManager {
         return transportByType.get(type);
     }
 
-    public Transport getFastestTransportByType(String type) {
-        List<Transport> transports = getTransportByType(type);
-        transports.sort(new SortBySpeedComparator());
-        return transports.getLast();
-    }
+//    public Transport getFastestTransportByType(String type) {
+//        List<Transport> transports = getTransportByType(type);
+//        transports.sort(new SortBySpeedComparator());
+//        return transports.getLast();
+//    }
 
     public void printAllTransport() {
         transportByPlate.forEach((k, v) -> System.out.println(v));

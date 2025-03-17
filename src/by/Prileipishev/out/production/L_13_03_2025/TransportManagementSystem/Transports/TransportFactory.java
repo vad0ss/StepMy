@@ -1,6 +1,7 @@
 package by.Prileipishev.out.production.L_13_03_2025.TransportManagementSystem.Transports;
 
 import by.Prileipishev.out.production.L_13_03_2025.TransportManagementSystem.User.User;
+import by.Prileipishev.out.production.L_13_03_2025.TransportManagementSystem.User.UserFactory;
 
 import java.util.List;
 import java.util.Random;
@@ -18,14 +19,15 @@ public class TransportFactory {
     private TransportFactory() {}
 
 
-    public static Transport next(User user) {
+    public static Transport next() {
 
         String type = transportTypes.get(random.nextInt(transportTypes.size()));
+        User user = UserFactory.next();
 
         switch (type) {
-            case "Car" : return new Car(models.get(random.nextInt(7)), byNumberGenerator(), random.nextInt(200), 2025, user, fuelTypes.get(random.nextInt(2)));
-            case "Bike" : return new Bike(models.get(random.nextInt(7)), byNumberGenerator(), random.nextInt(60), 2025, user, random.nextBoolean());
-            case "Truck" : return new Truck(models.get(random.nextInt(7)), byTrackNumberGenerator(), random.nextInt(140), 2025, user, random.nextDouble(100));
+            case "Car" : return new Car(models.get(random.nextInt(7)), byNumberGenerator(), random.nextInt(100,220), random.nextInt(1989,2025), user, fuelTypes.get(random.nextInt(2)));
+            case "Bike" : return new Bike(models.get(random.nextInt(7)), byNumberGenerator(), random.nextInt(10,60), random.nextInt(1989,2025), user, random.nextBoolean());
+            case "Truck" : return new Truck(models.get(random.nextInt(7)), byTrackNumberGenerator(), random.nextInt(30,140), random.nextInt(1989,2025), user, random.nextDouble(100));
             default:
                 return null;
         }
