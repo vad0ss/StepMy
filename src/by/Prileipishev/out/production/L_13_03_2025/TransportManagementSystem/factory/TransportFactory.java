@@ -1,7 +1,10 @@
-package by.Prileipishev.out.production.L_13_03_2025.TransportManagementSystem.Transports;
+package by.Prileipishev.out.production.L_13_03_2025.TransportManagementSystem.factory;
 
-import by.Prileipishev.out.production.L_13_03_2025.TransportManagementSystem.User.User;
-import by.Prileipishev.out.production.L_13_03_2025.TransportManagementSystem.User.UserFactory;
+import by.Prileipishev.out.production.L_13_03_2025.TransportManagementSystem.models.User;
+import by.Prileipishev.out.production.L_13_03_2025.TransportManagementSystem.models.Bike;
+import by.Prileipishev.out.production.L_13_03_2025.TransportManagementSystem.models.Car;
+import by.Prileipishev.out.production.L_13_03_2025.TransportManagementSystem.models.Transport;
+import by.Prileipishev.out.production.L_13_03_2025.TransportManagementSystem.models.Truck;
 
 import java.util.List;
 import java.util.Random;
@@ -22,12 +25,11 @@ public class TransportFactory {
     public static Transport next() {
 
         String type = transportTypes.get(random.nextInt(transportTypes.size()));
-        User user = UserFactory.next();
 
         switch (type) {
-            case "Car" : return new Car(models.get(random.nextInt(7)), byNumberGenerator(), random.nextInt(100,220), random.nextInt(1989,2025), user, fuelTypes.get(random.nextInt(2)));
-            case "Bike" : return new Bike(models.get(random.nextInt(7)), byNumberGenerator(), random.nextInt(10,60), random.nextInt(1989,2025), user, random.nextBoolean());
-            case "Truck" : return new Truck(models.get(random.nextInt(7)), byTrackNumberGenerator(), random.nextInt(30,140), random.nextInt(1989,2025), user, random.nextDouble(100));
+            case "Car" : return new Car(models.get(random.nextInt(7)), byNumberGenerator(), random.nextInt(100,220), random.nextInt(1989,2025), fuelTypes.get(random.nextInt(2)));
+            case "Bike" : return new Bike(models.get(random.nextInt(7)), byNumberGenerator(), random.nextInt(10,60), random.nextInt(1989,2025), random.nextBoolean());
+            case "Truck" : return new Truck(models.get(random.nextInt(7)), byTrackNumberGenerator(), random.nextInt(30,140), random.nextInt(1989,2025), random.nextDouble(100));
             default:
                 return null;
         }

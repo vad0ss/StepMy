@@ -1,4 +1,4 @@
-package by.Prileipishev.out.production.L_13_03_2025.TransportManagementSystem.User;
+package by.Prileipishev.out.production.L_13_03_2025.TransportManagementSystem.models;
 
 import java.util.Objects;
 
@@ -31,5 +31,13 @@ public class User {
     @Override
     public int hashCode() {
         return Objects.hash(name, surname);
+    }
+
+    @Override
+    public String toString() {
+        return "Владелец {" +
+                "Имя='" + name + '\'' +
+                ", Фамилия='" + surname + '\'' +
+                '}';
     }
 }

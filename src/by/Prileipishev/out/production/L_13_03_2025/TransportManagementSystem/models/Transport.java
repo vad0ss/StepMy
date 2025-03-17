@@ -1,6 +1,4 @@
-package by.Prileipishev.out.production.L_13_03_2025.TransportManagementSystem.Transports;
-
-import by.Prileipishev.out.production.L_13_03_2025.TransportManagementSystem.User.User;
+package by.Prileipishev.out.production.L_13_03_2025.TransportManagementSystem.models;
 
 import java.util.Objects;
 
@@ -10,18 +8,21 @@ public class Transport {
     private final String licensePlate;
     private final int speed;
     private final int year;
-    private final User user;
+    private User user;
 
-    public Transport(String model, String licensePlate, int speed, int year, User user) {
+    public Transport(String model, String licensePlate, int speed, int year) {
         this.model = model;
         this.licensePlate = licensePlate;
         this.speed = speed;
         this.year = year;
-        this.user = user;
     }
 
     public User getUser() {
         return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 
     public String getModel() {

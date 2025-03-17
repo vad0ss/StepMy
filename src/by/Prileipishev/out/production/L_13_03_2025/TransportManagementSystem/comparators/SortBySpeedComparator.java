@@ -1,6 +1,6 @@
-package by.Prileipishev.out.production.L_13_03_2025.TransportManagementSystem.Comparators;
+package by.Prileipishev.out.production.L_13_03_2025.TransportManagementSystem.comparators;
 
-import by.Prileipishev.out.production.L_13_03_2025.TransportManagementSystem.Transports.Transport;
+import by.Prileipishev.out.production.L_13_03_2025.TransportManagementSystem.models.Transport;
 
 import java.util.Comparator;
 

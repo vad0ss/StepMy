@@ -1,13 +1,14 @@
-package by.Prileipishev.out.production.L_13_03_2025.TransportManagementSystem.Transports;
+package by.Prileipishev.out.production.L_13_03_2025.TransportManagementSystem.manager;
 
-import by.Prileipishev.out.production.L_13_03_2025.TransportManagementSystem.Transports.Interfaces.TransportInterface;
+import by.Prileipishev.out.production.L_13_03_2025.TransportManagementSystem.manager.impl.TransportInterface;
+import by.Prileipishev.out.production.L_13_03_2025.TransportManagementSystem.models.Transport;
 
 import java.util.HashMap;
 import java.util.Map;
 
 public class TransportStatistics implements TransportInterface {
 
-    private Map<String, Integer> brandCount = new HashMap<>();
+    private final Map<String, Integer> brandCount = new HashMap<>();
 
     @Override
     public void addTransport(Transport transport) {

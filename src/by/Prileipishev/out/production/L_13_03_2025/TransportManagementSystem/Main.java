@@ -1,14 +1,18 @@
 package by.Prileipishev.out.production.L_13_03_2025.TransportManagementSystem;
 
-import by.Prileipishev.out.production.L_13_03_2025.TransportManagementSystem.Transports.*;
-import by.Prileipishev.out.production.L_13_03_2025.TransportManagementSystem.User.User;
+import by.Prileipishev.out.production.L_13_03_2025.TransportManagementSystem.factory.UserFactory;
+import by.Prileipishev.out.production.L_13_03_2025.TransportManagementSystem.models.User;
+import by.Prileipishev.out.production.L_13_03_2025.TransportManagementSystem.factory.TransportFactory;
+import by.Prileipishev.out.production.L_13_03_2025.TransportManagementSystem.manager.*;
+import by.Prileipishev.out.production.L_13_03_2025.TransportManagementSystem.models.Transport;
 
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Scanner;
 
 public class Main {
+
+    private static Scanner scanner = new Scanner(System.in);
 
 
     public static void main(String[] args) {
@@ -17,13 +21,18 @@ public class Main {
         TransportStatistics transportStatistic = new TransportStatistics();
         TransportSpeedGrouper transportSpeedGrouper = new TransportSpeedGrouper();
         TransportAnalytics transportAnalytics = new TransportAnalytics();
+        TransportService transportService = new TransportService();
 
         for (int i = 0; i < 100; i++) {
             Transport transport = TransportFactory.next();
+            User user = UserFactory.next();
+            transport.setUser(user);
+
             transportUserManager.addTransport(transport);
             transportStatistic.addTransport(transport);
             transportSpeedGrouper.addTransport(transport);
             transportAnalytics.addTransport(transport);
+            transportService.addTransport(transport);
         }
 
         transportUserManager.printAllOwnersAndTransport();
@@ -95,6 +104,23 @@ public class Main {
 
         for (String key : transportAnalytics.groupBySpeedRange().keySet()) {
             System.out.println(key + "" + group.get(key));
+        }
+
+        System.out.println("====================================================================");
+
+        System.out.println();
+        System.out.println("Введите номер для поиска");
+
+        String licensePlate = scanner.next();
+
+        System.out.println("====================== Владелец авто с номером ");
+
+        System.out.println(transportService.findOwnerByLicensePlate(licensePlate));
+
+        Map<String, List<User>> groupOwnersByCarCount = transportService.groupOwnersByCarCount();
+
+        for (String key : groupOwnersByCarCount.keySet()) {
+            System.out.println(key + " " + groupOwnersByCarCount.get(key));
         }
 
         System.out.println("====================================================================");

@@ -1,7 +1,9 @@
-package by.Prileipishev.out.production.L_13_03_2025.TransportManagementSystem.Transports;
+package by.Prileipishev.out.production.L_13_03_2025.TransportManagementSystem.manager;
 
-import by.Prileipishev.out.production.L_13_03_2025.TransportManagementSystem.Comparators.SortBySpeedComparator;
-import by.Prileipishev.out.production.L_13_03_2025.TransportManagementSystem.Transports.Interfaces.TransportInterface;
+import by.Prileipishev.out.production.L_13_03_2025.TransportManagementSystem.comparators.SortBySpeedComparator;
+import by.Prileipishev.out.production.L_13_03_2025.TransportManagementSystem.manager.impl.TransportInterface;
+import by.Prileipishev.out.production.L_13_03_2025.TransportManagementSystem.models.Transport;
+import by.Prileipishev.out.production.L_13_03_2025.TransportManagementSystem.models.User;
 
 import java.util.*;
 
