@@ -12,7 +12,7 @@ import java.util.Random;
 public class TransportFactory {
 
     protected static final List<String> transportTypes = List.of("Car", "Bike", "Truck");
-    private static final List<String> models = List.of("Reno", "Bmw", "Audi", "Mercedes", "Suzuki", "Toyota", "Ford");
+    private static final List<String> models = List.of("Reno", "Bmw", "Audi", "Mercedes", "Suzuki", "Toyota", "Ford", "Mitsubishi","VAZ", "Geely");
     private static final List<String> fuelTypes = List.of("Дизель", "Бензин");
 
     private static final List<String> numberAbc = List.of("А", "В", "Е", "І", "К", "М", "Н", "О", "Р", "С", "Т", "Х");
@@ -27,9 +27,9 @@ public class TransportFactory {
         String type = transportTypes.get(random.nextInt(transportTypes.size()));
 
         switch (type) {
-            case "Car" : return new Car(models.get(random.nextInt(7)), byNumberGenerator(), random.nextInt(100,220), random.nextInt(1989,2025), fuelTypes.get(random.nextInt(2)));
-            case "Bike" : return new Bike(models.get(random.nextInt(7)), byNumberGenerator(), random.nextInt(10,60), random.nextInt(1989,2025), random.nextBoolean());
-            case "Truck" : return new Truck(models.get(random.nextInt(7)), byTrackNumberGenerator(), random.nextInt(30,140), random.nextInt(1989,2025), random.nextDouble(100));
+            case "Car" : return new Car(models.get(random.nextInt(7)), byNumberGenerator(), random.nextInt(100,220), random.nextInt(1979,2025), fuelTypes.get(random.nextInt(2)), random.nextDouble(0.0, 999999.99));
+            case "Bike" : return new Bike(models.get(random.nextInt(7)), byNumberGenerator(), random.nextInt(10,60), random.nextInt(1979,2025), random.nextBoolean(), random.nextDouble(0.0, 999999.99));
+            case "Truck" : return new Truck(models.get(random.nextInt(7)), byTrackNumberGenerator(), random.nextInt(30,140), random.nextInt(1979,2025), random.nextDouble(100), random.nextDouble(0.0, 999999.99));
             default:
                 return null;
         }

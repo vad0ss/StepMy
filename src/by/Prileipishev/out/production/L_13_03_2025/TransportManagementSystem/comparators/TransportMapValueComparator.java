@@ -3,11 +3,16 @@ package by.Prileipishev.out.production.L_13_03_2025.TransportManagementSystem.co
 import java.util.Comparator;
 import java.util.Map;
 
-public class TransportMapValueComparator implements Comparator<Map .Entry<String, Integer>> {
+public class TransportMapValueComparator implements Comparator<String> {
+    private final Map<String, Integer> map;
 
+    public TransportMapValueComparator(Map<String, Integer> map) {
+        this.map = map;
+    }
 
     @Override
-    public int compare(Map.Entry<String, Integer> o1, Map.Entry<String, Integer> o2) {
-        return Integer.compare(o1.getValue(), o2.getValue());
+    public int compare(String k1, String k2) {
+        return map.get(k2).compareTo(map.get(k1));
     }
+
 }

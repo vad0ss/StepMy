@@ -7,14 +7,16 @@ public class Transport {
     private final String model;
     private final String licensePlate;
     private final int speed;
-    private final int year;
+    private int year;
+    private double mileage;
     private User user;
 
-    public Transport(String model, String licensePlate, int speed, int year) {
+    public Transport(String model, String licensePlate, int speed, int year, double mileage) {
         this.model = model;
         this.licensePlate = licensePlate;
         this.speed = speed;
         this.year = year;
+        this.mileage = mileage;
     }
 
     public User getUser() {
@@ -37,6 +39,8 @@ public class Transport {
         return year;
     }
 
+    public double getMileage() { return mileage; }
+
     @Override
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
@@ -55,7 +59,7 @@ public class Transport {
 
     @Override
     public String toString() {
-        return "Транспорт: " + "модель ='" + model + '\'' + ", максимальная скорость = " + speed + ", номер = " + licensePlate + " год выпуска: " + year + " владелец " + user.getName() + " " + user.getSurname() + " " + getClass().getSimpleName();
+        return "Транспорт: " + "модель ='" + model + '\'' + ", максимальная скорость = " + speed + ", номер = " + licensePlate + " год выпуска: " + year + " пробег " + mileage + " владелец " + user.getName() + " " + user.getSurname() + " " + getClass().getSimpleName();
     }
 
 

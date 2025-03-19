@@ -113,7 +113,7 @@ public class Main {
 
         String licensePlate = scanner.next();
 
-        System.out.println("====================== Владелец авто с номером ");
+        System.out.println("====================== Владелец авто с номером " + licensePlate + "==============");
 
         System.out.println(transportService.findOwnerByLicensePlate(licensePlate));
 
@@ -122,6 +122,60 @@ public class Main {
         for (String key : groupOwnersByCarCount.keySet()) {
             System.out.println(key + " " + groupOwnersByCarCount.get(key));
         }
+
+        System.out.println("====================================================================");
+
+        System.out.println("======================== ТОП 5 Брендов =============================");
+
+        for (String brand : transportService.findTop5MostPopularBrands()) {
+            System.out.println(brand);
+        }
+
+        System.out.println("====================================================================");
+
+        System.out.println("======================== По возрастным группам =====================");
+
+        transportService.groupByAge().forEach((k,v) -> System.out.println(k + " " + v));
+
+        System.out.println("====================================================================");
+
+        System.out.println("=================== Количество транспорта по типу ==================");
+
+        transportService.countTransportByType().forEach((k,v) -> System.out.println(k + " " + v));
+
+        System.out.println("====================================================================");
+
+        System.out.println("=================== Владелец самого старого авто ==================");
+
+        User ownerByOldestCar = transportService.findOwnerWithOldestCar();
+        User smooker = transportService.findOwnerWithOldestCarSmooker();
+
+        System.out.println(ownerByOldestCar.getName() + " " + ownerByOldestCar.getSurname());
+        System.out.println(smooker.getName() + " " + smooker.getSurname());
+
+        System.out.println("====================================================================");
+
+        System.out.println("======================= Владельцы одной марки ======================");
+
+        List<User> oneBrandUser = transportService.findOwnersWithSingleBrand();
+
+        for (User user : oneBrandUser) {
+            System.out.println(user.getName() + " " + user.getSurname());
+        }
+
+        System.out.println("====================================================================");
+
+        System.out.println("========================== Средний пробег ==========================");
+
+        System.out.println(transportService.getAverageCarAge());
+
+        System.out.println("====================================================================");
+
+        System.out.println("======== Пользователь с максимальным суммарным пробегом ============");
+
+        User userWithMaxMileage = transportService.findOwnerWithHighestMileage();
+
+        System.out.println(userWithMaxMileage.getName() + " " + userWithMaxMileage.getSurname());
 
         System.out.println("====================================================================");
 

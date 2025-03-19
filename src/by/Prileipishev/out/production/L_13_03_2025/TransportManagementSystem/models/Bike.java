@@ -5,8 +5,8 @@ public class Bike extends Transport {
     private boolean hasSidecar;
 
 
-    public Bike(String model, String licensePlate, int speed, int year, boolean hasSidecar) {
-        super(model, licensePlate, speed, year);
+    public Bike(String model, String licensePlate, int speed, int year, boolean hasSidecar, double mileage) {
+        super(model, licensePlate, speed, year, mileage);
         this.hasSidecar = hasSidecar;
     }
 }
