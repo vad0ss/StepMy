@@ -1,11 +1,10 @@
 package by.Prileipishev.out.production.L_21_04_2025.grocery;
 
+import by.Prileipishev.out.production.L_21_04_2025.Dish;
 import by.Prileipishev.out.production.L_21_04_2025.grocery.factory.GroceryItemFactory;
 
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
+import java.util.stream.Collectors;
 
 public class Main {
 
@@ -14,6 +13,23 @@ public class Main {
 
         GroceryItemFactory factory = new GroceryItemFactory();
         List<GroceryItem> groceryItems = new ArrayList<>();
+
+        List<Customer> customers = List.of(
+                new Customer("Андрей", List.of(
+                        new GroceryItem("Milk", Category.DAIRY, 1.2, true),
+                        new GroceryItem("Bread", Category.BAKERY, 0.8, true)
+                )),
+                new Customer("Ирина", List.of(
+                        new GroceryItem("Apple", Category.FRUIT, 0.5, true),
+                        new GroceryItem("Wine", Category.BEVERAGE, 5.0, false),
+                        new GroceryItem("Cheese", Category.DAIRY, 3.0, true)
+                )),
+                new Customer("Сергей", List.of(
+                        new GroceryItem("Eggs", Category.DAIRY, 2.0, true),
+                        new GroceryItem("Chocolate", Category.BAKERY, 1.5, false)
+                )),
+                new Customer("Сергей", new ArrayList<>())
+        );
 
         for (int i = 0; i < 10; i++) {
             groceryItems.add(factory.next());
@@ -79,6 +95,45 @@ public class Main {
                 .toList();
 
         System.out.println(uniqueCategories);
+
+        // Customers task
+
+        System.out.println();
+        System.out.println("Customers");
+        System.out.println();
+
+        List<GroceryItem> groceryItemList = customers.stream()
+                .flatMap(c -> c.getShoppingList().stream()).collect(Collectors.toList());
+
+        System.out.println(groceryItemList);
+
+        long count = customers.stream()
+                .map(Customer::getName)
+                .count();
+
+        System.out.println(count);
+
+        Optional<Customer> maxCustomer = customers.stream()
+                .max(Comparator.comparingDouble(c -> c.getShoppingList().stream().mapToDouble(g -> g.getPrice()).sum()));
+
+        maxCustomer.ifPresent(System.out::println);
+
+        Set<String> uniqueGrocery = customers.stream()
+                .flatMap(c -> c.getShoppingList().stream())
+                .map(GroceryItem::getName)
+                .collect(Collectors.toSet());
+
+        System.out.println(uniqueGrocery);
+
+        Map<Category, Set<String>> categoryTable;
+
+        Optional<Customer> emptyCustomer = customers.stream()
+                .filter(c -> c.getShoppingList().isEmpty())
+                .findFirst();
+
+        emptyCustomer.ifPresent(System.out::println);
+
+
     }
 
 }
