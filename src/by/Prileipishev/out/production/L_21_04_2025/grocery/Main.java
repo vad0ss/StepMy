@@ -152,7 +152,6 @@ public class Main {
                 .collect(Collectors.toList());
 
         // Пропустите первого покупателя и выберите следующих двоих:
-
         List<Customer> nextTwo = customers.stream()
                 .skip(1)
                 .limit(3)
