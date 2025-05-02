@@ -23,4 +23,5 @@ public class Transaction {
     public String toString() {
         return date + " " + type + " " + amount + " Br";
     }
+
 }
