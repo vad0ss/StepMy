@@ -28,7 +28,7 @@ public class Main {
                         new GroceryItem("Eggs", Category.DAIRY, 2.0, true),
                         new GroceryItem("Chocolate", Category.BAKERY, 1.5, false)
                 )),
-                new Customer("Сергей", new ArrayList<>())
+                new Customer("Пётр", new ArrayList<>())
         );
 
         for (int i = 0; i < 10; i++) {
@@ -133,7 +133,31 @@ public class Main {
 
         emptyCustomer.ifPresent(System.out::println);
 
+        // Collectors.summarizingDouble для каждого клиента
+        // Постройте Map<String, DoubleSummaryStatistics> суммарной статистики
+        // цен для каждого покупателя:
 
+        Map<String, DoubleSummaryStatistics> cStatistics = customers.stream()
+                .collect(Collectors.toMap(Customer::getName,
+                        c -> c.getShoppingList().stream()
+                                .collect(Collectors.summarizingDouble(GroceryItem::getPrice))));
+
+                System.out.println(cStatistics);
+
+        // При выводе каждого клиента используйте
+        // .peek(c -> System.out.println("Обрабатываем " + c.getName())).
+
+        List<Customer> collect = customers.stream()
+                .peek(c -> System.out.println("Обрабатываем " + c.getName()))
+                .collect(Collectors.toList());
+
+        // Пропустите первого покупателя и выберите следующих двоих:
+        List<Customer> nextTwo = customers.stream()
+                .skip(1)
+                .limit(3)
+                .collect(Collectors.toList());
+
+        System.out.println(nextTwo);
     }
 
 }
