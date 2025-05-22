@@ -102,3 +102,6 @@ SELECT DISTINCT category FROM books WHERE price BETWEEN 10 AND 50;
 
 
 SELECT u.fullname as FIO, COUNT(o.total) AS Counter FROM users u INNER JOIN orders o ON u.id = o.user_id GROUP BY u.fullname;
+
+
+SELECT country.country_name, country.capital AS country FROM countries LEFT JOIN continents AS continent ON country.continent_id=continent.continent_id;
