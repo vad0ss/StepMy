@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>HTML page</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+<!--<ul class="menu">-->
+<!--    <li><a href="#">Link 1</a></li>-->
+<!--    <li><a href="#">Link 2</a></li>-->
+<!--</ul>-->
+
+<form action="/submit" method="post">
+    <div class="username">
+        <label for="username">Username:</label>
+        <input type="text" name="username" placeholder="User Name">
+    </div>
+    <div class="radio">
+        <input
+                type="radio"
+                name="gender"
+                value="male"
+                checked
+        >Мужской
+        <input
+                type="radio"
+                name="gender"
+                value="female"
+        >Женский
+    </div>
+
+    <div class="hobby">
+        <input type="checkbox" name="hobby" value="reading" checked>Чтение
+        <input type="checkbox" name="gaming" value="gaming">Игры
+        <input type="checkbox" name="sport" value="sport">Спорт
+    </div>
+
+    <div class="city">
+        <label for="city">City</label>
+        <select name="city">
+            <option value="Moscow">Москва</option>
+            <option value="Vitebsk">Витебск</option>
+            <option value="Minsk">Минск</option>
+        </select>
+    </div>
+
+    <div class="password">
+        <label for="password">Password:</label>
+        <input type="password" name="password" placeholder="Password">
+    </div>
+    <button type="button"
+            onclick="document.getElementById('my_dialog').showModal()"
+            class="btn">Отправить</button>
+    <!--    <button type="submit">Отправить</button>-->
+
+</form>
+
+<dialog id="my_dialog">
+    <p>Отправить данные?</p>
+    <button type="button" onclick="this.parentElement.close()">Закрыть</button>
+</dialog>
+
+</body>
+</html>
