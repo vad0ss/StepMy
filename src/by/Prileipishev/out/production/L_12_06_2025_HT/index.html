@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>HTML page</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<form action="/submit" method="post">
+    <h1>Регистрация</h1>
+    <div class="username">
+        <label for="name">Ваше имя:</label>
+        <input type="text" name="name" placeholder="Ваше имя" required>
+    </div>
+    <div class="email">
+        <label for="email">Ваш email:</label>
+        <input type="email" name="email" placeholder="Ваш email" required>
+    </div>
+    <div class="password">
+        <label for="password">Ваш пароль:</label>
+        <input type="password" name="password" placeholder="Ваш пароль" required>
+    </div>
+    <label for="gender">Пол:</label>
+        <input
+                type="radio"
+                name="gender"
+                value="male"
+                checked
+        >Мужской
+        <input
+                type="radio"
+                name="gender"
+                value="female"
+        >Женский
+
+
+    <label for="hobby">Интересы:</label>
+        <input type="checkbox" name="hobby" value="reading" checked>Чтение
+        <input type="checkbox" name="hobby" value="music">Музыка
+        <input type="checkbox" name="hobby" value="sport">Спорт
+
+
+    <div class="country">
+        <label for="country">Страна:</label>
+        <select class="select_list" name="country">
+            <option value="Belarus" selected>Беларусь</option>
+            <option value="Russia">Россия</option>
+            <option value="Latvia">Латвия</option>
+        </select>
+    </div>
+
+    <button onclick="document.getElementById('my_dialog').open = true"  type="submit">Отправить</button>
+
+<!--    <button type="button"-->
+<!--            onclick="document.getElementById('my_dialog').showModal()"-->
+<!--            class="btn">Отправить</button>-->
+
+</form>
+
+<dialog id="my_dialog">
+    <p>Регистрация успешна!"</p>
+    <button type="button" onclick="this.parentElement.close()">Закрыть</button>
+</dialog>
+
+</body>
+</html>
