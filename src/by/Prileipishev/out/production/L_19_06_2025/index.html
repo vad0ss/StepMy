@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>HTML page</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+</head>
+<body>
+
+<div class="container">
+
+    <p>Before Script</p>
+
+    <p>After script</p>
+
+
+    <form method="GET" action="search">
+
+        <div id="query" class="query">
+            <label for="query_i">Query:</label>
+            <input id="query_i" type="text" name="query" value="apple">
+        </div>
+
+        <div class="type" id="type">
+            <label for="Type">Type:</label>
+            <label for="fruit">Fruit</label>
+            <input id="fruit" type="radio" name="type" value="fruit" checked>
+            <label for="potato">Potato</label>
+            <input id="potato" type="radio" name="type" value="potato">
+        </div>
+
+        <div class="color" id="color">
+            <label for="color">Color:</label>
+            <label for="red">Red</label>
+            <input id="red" type="radio" name="color" value="red" checked>
+            <label for="green">Green</label>
+            <input id="green" type="radio" name="color" value="green">
+        </div>
+
+        <div class="limit">
+            <label for="limit">Limit:</label>
+            <input id="limit" type="number" name="limit" min="1" max="50" value="10">
+        </div>
+
+        <button type="submit">Submit</button>
+    </form>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,16 @@
+form {
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+     border: 2px, black solid;
+     align-items: center;
+     gap: 20px;
+     padding-top: 10px;
+     padding-bottom: 10px;
+     width: 300px;
+}
+
+label {
+    font-weight: bold;
+}
+
